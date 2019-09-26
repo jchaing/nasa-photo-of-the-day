@@ -32,8 +32,8 @@ const useFetchMedia = (changeDate) => {
   return { media, title, mediaType };
 };
 
-const Media = (props) => {
-  const retrieved = useFetchMedia(props.date);
+const Media = ({date}) => {
+  const retrieved = useFetchMedia(date);
   return (
     <div>
       <h2>{retrieved.title}</h2>

@@ -1,12 +1,12 @@
 import React from 'react';
 
-const Video = props => {
+const Video = ({url, title}) => {
   return (
     <iframe
       width="800"
       height="600"
-      src={props.url}
-      title={props.title}
+      src={url}
+      title={title}
     ></iframe>
   );
 };
