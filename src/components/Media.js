@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Image from './Image';
+import Video from './Video';
 
 const useFetchMedia = (changeDate) => {
   const [media, setImage] = useState();
@@ -36,9 +38,9 @@ const Media = (props) => {
     <div>
       <h2>{retrieved.title}</h2>
       {retrieved.mediaType === 'image' ? (
-        <img src={retrieved.media} alt={retrieved.title} />
+        <Image url={retrieved.media} alt={retrieved.title}/>
       ) : (
-        <iframe width='800' height='600' src={retrieved.media} title={retrieved.title}></iframe>
+        <Video url={retrieved.media} title={retrieved.title}/>
       )}
     </div>
   );

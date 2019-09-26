@@ -12,7 +12,7 @@ const DatePicker = () => {
         <input
           id="calendar"
           type="date"
-          value={todaysDate}
+          value={date}
           onChange={e => {
             setDate(e.target.value);
           }}
