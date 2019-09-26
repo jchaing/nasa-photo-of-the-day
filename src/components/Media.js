@@ -10,7 +10,7 @@ const useFetchMedia = (changeDate) => {
     const fetchMedia = () => {
       axios
         .get(
-          `https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=${changeDate}`
+          `https://api.nasa.gov/planetary/apod?api_key=XK058RAji6GAtwfKpv9hLFPmfnROVb1DzvNEXoDn&date=${changeDate}`
         )
         .then(res => {
           const spaceImage = res.data.url;
