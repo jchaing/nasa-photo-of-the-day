@@ -9,7 +9,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Astronomy Photo of the Day</h1>
+      <h1>NASA's Astronomy Photo of the Day</h1>
       <DatePicker />
     </div>
   );
