@@ -7,6 +7,8 @@ const useFetchMedia = (changeDate) => {
   const [media, setImage] = useState();
   const [title, setTitle] = useState();
   const [mediaType, setMediaType] = useState();
+  const [explanation, setExplanation] = useState();
+  const [copyright, setCopyright] = useState();
 
   useEffect(() => {
     const fetchMedia = () => {
@@ -18,18 +20,22 @@ const useFetchMedia = (changeDate) => {
           const spaceImage = res.data.url;
           const spaceTitle = res.data.title;
           const spaceMediaType = res.data.media_type;
+          const spaceExplanation = res.data.explanation;
+          const spaceCopyright = res.data.copyright;
           console.log(res);
 
           setImage(spaceImage);
           setTitle(spaceTitle);
           setMediaType(spaceMediaType);
+          setExplanation(spaceExplanation);
+          setCopyright(spaceCopyright);
         });
     };
 
     fetchMedia();
   }, [changeDate]);
 
-  return { media, title, mediaType };
+  return { media, title, mediaType, explanation, copyright };
 };
 
 const Media = ({date}) => {
@@ -41,7 +47,9 @@ const Media = ({date}) => {
         <Image url={retrieved.media} alt={retrieved.title}/>
       ) : (
         <Video url={retrieved.media} title={retrieved.title}/>
-      )}
+        )}
+      <p>{retrieved.explanation}</p>
+      <footer>Copyright: {retrieved.copyright}</footer>
     </div>
   );
 };
