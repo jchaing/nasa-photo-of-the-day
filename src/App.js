@@ -1,14 +1,19 @@
-import React from "react";
-import "./App.css";
+import React from 'react';
+import DatePicker from './components/DatePicker';
+import './App.css';
+import { Container, Badge } from 'reactstrap';
 
 function App() {
+
   return (
-    <div className="App">
-      <p>
-        Read through the instructions in the README.md file to build your NASA
-        app! Have fun 🚀!
-      </p>
-    </div>
+    <Container>
+      <div className="App">
+        <h1>
+          <Badge color="secondary">NASA's Astronomy Photo of the Day</Badge>
+        </h1>
+        <DatePicker />
+      </div>
+    </Container>
   );
 }
 
