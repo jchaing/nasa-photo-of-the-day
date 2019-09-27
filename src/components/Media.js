@@ -4,11 +4,9 @@ import Image from './Image';
 import Video from './Video';
 import {
   Card,
-  CardImg,
   CardText,
   CardBody,
   CardTitle,
-  CardSubtitle
 } from 'reactstrap';
 
 const useFetchMedia = changeDate => {
