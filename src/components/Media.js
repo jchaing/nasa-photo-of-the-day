@@ -2,8 +2,16 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Image from './Image';
 import Video from './Video';
+import {
+  Card,
+  CardImg,
+  CardText,
+  CardBody,
+  CardTitle,
+  CardSubtitle
+} from 'reactstrap';
 
-const useFetchMedia = (changeDate) => {
+const useFetchMedia = changeDate => {
   const [media, setImage] = useState();
   const [title, setTitle] = useState();
   const [mediaType, setMediaType] = useState();
@@ -38,18 +46,22 @@ const useFetchMedia = (changeDate) => {
   return { media, title, mediaType, explanation, copyright };
 };
 
-const Media = ({date}) => {
+const Media = ({ date }) => {
   const retrieved = useFetchMedia(date);
   return (
     <div>
-      <h2>{retrieved.title}</h2>
-      {retrieved.mediaType === 'image' ? (
-        <Image url={retrieved.media} alt={retrieved.title}/>
-      ) : (
-        <Video url={retrieved.media} title={retrieved.title}/>
+      <Card>
+        {retrieved.mediaType === 'image' ? (
+          <Image url={retrieved.media} alt={retrieved.title} />
+        ) : (
+          <Video url={retrieved.media} title={retrieved.title} />
         )}
-      <p>{retrieved.explanation}</p>
-      <footer>Copyright: {retrieved.copyright}</footer>
+        <CardBody>
+          <CardTitle>{retrieved.title}</CardTitle>
+          <CardText>{retrieved.explanation}</CardText>
+          <footer>Copyright: {retrieved.copyright}</footer>
+        </CardBody>
+      </Card>
     </div>
   );
 };
